@@ -11,6 +11,7 @@ import { renderAuth } from "./js/auth.js";
 import { renderApply } from "./js/apply.js";
 import { renderStatus } from "./js/status.js";
 import { renderAdmin } from "./js/admin.js";
+import { renderList } from "./js/list.js";
 
 const view = document.getElementById("view");
 const nav = document.getElementById("nav");
@@ -18,7 +19,7 @@ const adminLink = document.getElementById("admin-link");
 const signOutButton = document.getElementById("sign-out");
 
 const PUBLIC_PATHS = new Set(["/", "/login"]);
-const PATHS = ["/", "/login", "/apply", "/status", "/admin"];
+const PATHS = ["/", "/login", "/apply", "/status", "/admin", "/list"];
 
 let user = null;
 let admin = false;
@@ -47,7 +48,7 @@ function render() {
     location.hash = "#/apply";
     return;
   }
-  if (path === "/admin" && !admin) {
+  if ((path === "/admin" || path === "/list") && !admin) {
     toast("Admin review is restricted.");
     location.hash = "#/status";
     return;
@@ -58,6 +59,7 @@ function render() {
   else if (path === "/apply") renderApply(view, user);
   else if (path === "/status") renderStatus(view, user);
   else if (path === "/admin") renderAdmin(view, user, render);
+  else if (path === "/list") renderList(view, user, render);
   nav.hidden = !user;
   for (const link of nav.querySelectorAll("a")) {
     link.classList.toggle("active", link.getAttribute("href") === "#" + path);
