@@ -1,0 +1,51 @@
+name: firebase-deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: firebase-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate hosting config and rules
+        run: |
+          set -euo pipefail
+          node -e "JSON.parse(require('fs').readFileSync('firebase.json', 'utf8'))"
+          test -s index.html
+          test -s firestore.rules
+          test -s storage.rules
+          grep -q '"firestore.rules"' firebase.json
+          grep -q '"storage.rules"' firebase.json
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT}" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT secret is missing."
+            echo "::error::One-time owner step: GitHub → Settings → Secrets and variables → Actions → add FIREBASE_SERVICE_ACCOUNT with the service-account JSON from Firebase Console → Project settings → Service accounts."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$RUNNER_TEMP/firebase-service-account.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-service-account.json" >> "$GITHUB_ENV"
+
+      - name: Deploy Hosting, Firestore rules and Storage rules
+        run: |
+          set -euo pipefail
+          npx --yes firebase-tools@latest deploy \
+            --only hosting,firestore:rules,storage \
+            --project crate-night-eaa55 \
+            --non-interactive
