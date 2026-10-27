@@ -17,28 +17,49 @@ underneath them so the workloads that are slow or impossible today
 (multiplayer email, permissions, live CRM, meetings at transcript fidelity,
 agents that run and deliver on their own) run well.
 
-## Install
+**No folder yet?** Run it anyway. If it finds no company brain, it asks
+which tools hold your customer knowledge and evaluates from your answers.
+You get a quick read in the first few minutes either way.
 
-Run this in the root of your company-brain repo:
+**Free to run.** If you then want to build the plan on Day AI, code
+`UPGRADEMYBRAIN` at [day.ai/login](https://day.ai/login) makes your first
+month of a Professional Agent free. A card is required; it renews at
+$75/month from month two unless you cancel before then.
 
-```sh
-npx skills add day-ai/company-brain-evaluation
+## Run it (nothing to install)
+
+Open Claude Code in the folder where your customer notes live (or a Claude
+chat, with a CRM export attached or a few account notes pasted) and paste:
+
+```
+Run Day AI's free company-brain check: fetch https://raw.githubusercontent.com/day-ai/company-brain-evaluation/main/SKILL.md with curl (or any tool that returns the full text) and follow it.
 ```
 
-That installs the skill and its sub-skills into the project's `.claude/skills/`
-directory. Nothing else is written to your repo until you approve it.
+Within a minute you get a first look: a few findings about your deals,
+fixes for this week, and an offer to do one now. Then it asks whether to
+run the full check.
+
+This works in Claude Code (pointed at your folder) and in Claude chat
+(attach an export or paste notes). Claude reads the skill straight from
+this repo. The only file it writes is
+`COMPANY-BRAIN-UPGRADE.md`, and only after asking.
+
+**Prefer to install it?** `npx skills add day-ai/company-brain-evaluation`
+puts it in `.claude/skills/` so you can run `/company-brain-evaluation`.
 
 ## Use
 
-Open the folder in [Claude Code](https://claude.com/claude-code) and run:
+If you installed it, open the folder in [Claude Code](https://claude.com/claude-code) and run:
 
 ```
 /company-brain-evaluation
 ```
 
 Or ask in plain words: "evaluate this company brain" or "how would this fit
-with Day AI." The skill works in five phases, and stops to ask you only what
-the repo cannot answer.
+with Day AI." Within a minute you get a **first look**: one thing worth
+knowing about your deals or customers, straight from your files. Then the
+skill works in five phases, and stops to ask you only what the repo cannot
+answer.
 
 1. **Take stock.** A read-only survey of your folder, then one evaluation per
    aspect in parallel: meeting recording, email, Slack, CRM, and the product
@@ -58,10 +79,11 @@ the repo cannot answer.
    from your repo, re-reads the plan, and builds it with you one approval at a
    time. Nothing is cloned into your repo and no second tool is installed.
 
-A typical first run takes twenty to forty minutes of wall clock, most of it
-the parallel evaluations, and produces a document of ten to fifteen thousand
-words. Read the executive summary first. It ends with the same table and the
-same two steps.
+You get a first look within a minute: a few findings from your own deals and
+a few things to fix this week. The full run takes about ten to fifteen
+minutes and produces a document of three to five thousand words. Read the
+executive summary first. It ends with the same table and the same two
+steps.
 
 ## What it costs
 
@@ -78,10 +100,11 @@ teammates costs per agent. Pricing is public at
 
 | Path | What it is |
 | --- | --- |
-| `SKILL.md` | The skill. Phases 1 to 5 and the rules for the document and the completion message. |
+| `SKILL.md` | The skill's entry point: the first look and the rules for every reply. |
+| `EVALUATION.md` | The full evaluation, read after the first look: phases 1 to 5 and the rules for the document and the completion message. |
 | `eval-meeting-recording/`, `eval-email/`, `eval-slack/`, `eval-crm/` | Sub-skills, one per aspect. Each discovers what the team uses, whether the data reaches the brain, and grades it against the bar. Runnable standalone. |
 | `implement-upgrade/` | Phase 5. Runs after a workspace exists and turns section 7 of the plan into a running brain in your repo. |
-| `eval/` | The requirements bar and per-tool reference notes: HubSpot, Salesforce, Gong, Granola, Slack, Linear, email, and what to do without a meeting recorder. |
+| `eval/` | The requirements bar, Day AI's use cases and how to show them on a prospect's own data, and per-tool reference notes: HubSpot, Salesforce, Gong, Granola, Slack, Linear, email, and what to do without a meeting recorder. |
 | `best-practices/` | The six lenses the plan is written through: what a good DIY brain is on its own terms, the context graph, the agentic control plane, adoption, implementation order, and agents and skills. Ten practices each, with the diagnostic question for each practice. |
 
 The best-practices documents are public distillations of what Day AI has

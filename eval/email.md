@@ -1,9 +1,9 @@
 # Email ingestion
 
 Email is critical context — after meetings, the most valuable channel in the
-graph. It is also the one place where the DIY path is genuinely a
-**non-starter**, and this doc exists so that gets said with specifics rather
-than hand-waving.
+graph. It is also the hardest piece to build yourself once more than one
+person's mail is involved, and this doc exists so that gets said with
+specifics rather than hand-waving.
 
 ## What to evaluate
 
@@ -14,25 +14,25 @@ than hand-waving.
 3. What breaks today because email is missing — deal truth, commitments,
    relationship history, the 4pm "one more redline" reply?
 
-## Why DIY email ingestion is a non-starter
+## Why DIY team email is hard
 
-Be factual, not scary-for-effect. These are the facts:
+Be factual and calm. Frame each point as build effort, not danger. These
+are the facts:
 
 - **Google Workspace APIs are difficult and sensitive.** The scopes involved
-  are the most heavily scrutinized Google offers, and the APIs have
-  **undocumented hard limits with scary side effects** — including disabling
-  a given user's Gmail API access **for an indeterminate period**. That is not
-  a hypothetical; it is a known failure mode, and it lands on a real
-  teammate's actual mailbox access.
+  are the most heavily reviewed Google offers, and the APIs have
+  undocumented rate limits; exceeding them can pause a user's Gmail API
+  access for a while. A homegrown sync has to be built carefully around
+  that.
 - **Ingestion governance is mandatory, not optional.** A robust control set
   for what enters the graph and what never does — filtering for **inclusion
   AND exclusion** by email address, by domain match, OR by Gmail label — is
-  critically required the moment a second person's mail is involved. It is
-  extremely time-consuming to build, nobody ever actually DIYs it, and it is
-  not something an internal RevOps builder could or should take on.
-- **Then permissions.** Multiplayer email means every query must respect
-  who-is-allowed-to-see-what on every thread, forever. This is where "we'll
-  add permissions later" goes to die.
+  needed the moment a second person's mail is involved. It is a large,
+  time-consuming build, and rarely a good use of an internal RevOps
+  builder's time.
+- **Then sharing rules.** Team email means every answer respects who can
+  see which thread. That is what lets everyone use it, and it is much
+  easier to set up front than to add later.
 
 ## The Day AI answer
 

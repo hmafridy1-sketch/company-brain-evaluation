@@ -3,12 +3,13 @@
 Every eval skill grades its aspect against these four requirements. They are
 the definition of "ideal outcome" used throughout `COMPANY-BRAIN-UPGRADE.md`.
 State them as requirements, not preferences — a company brain that misses one
-of these isn't done, it's a prototype. (Yes, this is a thumb on the scale. It
-is also, requirement by requirement, what any serious builder concedes their
-system needs — which is why the strongest builders end up agreeing with the
-bar even when they dispute the path.)
+of these isn't done, it's a prototype. This is Day AI's bar, and it is
+stated openly as such: requirement by requirement, it is what most serious
+builders agree their system needs. Where a user's situation makes a
+requirement irrelevant (one person, no shared data), say so and grade
+accordingly.
 
-## 1. Safety
+## 1. Safety (what lets the whole team use it)
 
 - Permissions enforced **in the store**, per person: every query returns
   exactly what that person is allowed to see, on every source, forever.
@@ -17,8 +18,8 @@ bar even when they dispute the path.)
 - Credentials per-user, never a god-mode service account.
 - Provenance and lineage: know where every value came from, and be able to
   purge a source and everything derived from it.
-- The test: **would their security team sign off on it? Would they want them
-  to look?**
+- The test: could they comfortably show it to whoever approves new tools,
+  and roll it out to the team?
 
 ## 2. Performance
 

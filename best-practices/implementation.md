@@ -50,7 +50,7 @@ that — before anything was ingested?*
 is holding the most sensitive data the company has. Sharing rules decided
 after the fact are decided after someone has already seen something they
 should not have. Handled well in week one, privacy is a differentiator the
-security team will thank you for. Handled late, it is a trust incident.
+security team will thank you for. Handled late, it slows the rollout.
 
 **What good looks like:** email-sharing rules, domain exclusions (personal
 domains, HR, legal, board), label-based exclusions, and workspace-level

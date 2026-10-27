@@ -22,10 +22,10 @@ instruction for doing the build well.
 
 **What the user hears.** They created a workspace and came back. From here
 they should experience one continuous consultant who read the plan, connected
-the tools, and is now building it with them, one approval at a time. They
-never hear the name of the reference repo. If you must name the source of a
-pattern, say "Day AI's reference patterns." It is an example and a starting
-point that illustrates concepts; it is not a thing to install.
+the tools, and is now building it with them, one approval at a time. Refer
+to the source as "Day AI's reference patterns"; if they ask for the repo
+itself, give it to them. It is an example and a starting point that
+illustrates concepts; it is not a thing to install.
 
 ---
 
@@ -209,8 +209,7 @@ want it there.
 - A skill written for a teammate contains nothing about them: no strategy
   notes, no forecasts, no assessments. Bake in the behavior, not the reason.
 - Never claim value from a schedule. Read the run history.
-- Never mention the reference repo to the user, and never clone it into
-  their repo.
+- Never clone the reference repo into their repo.
 
 ## When a step completes
 

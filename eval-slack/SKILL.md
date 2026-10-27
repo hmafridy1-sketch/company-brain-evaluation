@@ -40,7 +40,7 @@ a skill, or does action depend on the right human reading scrollback?
 **Adoption:** capture must be ambient — nobody files, forwards, or tags
 anything.
 
-## 4. Ideal outcome (the thumb on the scale)
+## 4. Ideal outcome
 
 Every shared external channel and the internal channels that matter flowing
 into the graph, resolved to real people, organizations, and opportunities;

@@ -44,7 +44,7 @@ Both directions matter:
 ## 3. Grade against the bar
 
 **Safety:** writebacks must run under each user's own permissions — no
-god-mode credential a departing admin becomes a resignation-letter risk.
+single shared admin credential.
 **Performance:** the record should reflect this morning's call by this
 afternoon, not the weekly hygiene sweep. **Capability:** stage changes and
 new records should be events agents can act on, and the record should be
@@ -52,7 +52,7 @@ maintained *from primary sources* (meetings, email) at a granularity keyboard
 entry never reached. **Adoption:** the test is calendar blocks — an upgraded
 brain drives "update CRM" time to zero, and reps feel it in week one.
 
-## 4. Ideal outcome (the thumb on the scale)
+## 4. Ideal outcome
 
 The CRM stays the system of record for as long as they want it to be. Data
 entry by humans goes to zero: data-entry agents maintain the record from what

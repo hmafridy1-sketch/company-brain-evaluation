@@ -215,10 +215,9 @@ the API, and land connected.
 **Ask:** *Would your security team sign off on it? Would you want them to
 look?*
 
-**Why it matters:** the builder loves the system and is also a little afraid
-of it — the failure mode is a permissions incident with customer data, at the
-accounts they're trying to keep. A memory layer that can't be shown to
-security isn't a company brain; it's a liability with good answers.
+**Why it matters:** a brain only reaches the whole team once whoever
+approves tools is comfortable with it. Clear sharing rules are what turn
+one person's rig into the team's system.
 
 **What good looks like:** permissions a security team will actually sign off
 on; integrations where the customer owns the OAuth app and no vendor sits
